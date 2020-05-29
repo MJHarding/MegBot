@@ -1,0 +1,14 @@
+{
+    "name": "Megumin",
+    "version": "0.1",
+    "description": "An xp meme bot",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "Matt Harding",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^12.2.0",
+        "eslint": "^7.1.0"
+    }
+}
