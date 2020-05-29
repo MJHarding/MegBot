@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+require('dotenv').config();
 const PREFIX = '$';
 
 client.once('ready', () => {
     console.log('ready!');
 });
 
-client.login('NzE1ODI0OTM3MTIxNjExODc3.XtC6Lg.ESsjFcDpHKDeELA9zMHOeUWoK44')
+client.login(process.env.CLIENT_TOKEN);
 
 client.on('message', message => {
     console.log(message.content);
