@@ -1,19 +1,16 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const random = require('random');
+const mongoose = require('mongoose');
+const nodemon = require('nodemon')
+client.mongoose = require('./utilities/mongoose');
 require('dotenv').config();
 const fetch = require('node-fetch')
 const PREFIX = '$';
 
-// var users = {};
-// const guildStats = users[message.guild.id];
-// const userStats = guildStats[message.author.id];
-
 client.once('ready', () => {
-    console.log('ready!');
+    console.log('MegBot is ready!');
 });
-
-client.login(process.env.CLIENT_TOKEN);
 
 client.on('message', async message => {
     console.log(message.content);
@@ -21,22 +18,6 @@ client.on('message', async message => {
     if(message.content == 'Hello'){
         message.reply('Hello!')
     };
-
-    // if(message.guild.id in users === false){
-    //     guildStats = {}
-    // };
-
-    // if(message.author.id in guildStats === false) {
-    //     userStats = {
-    //         xp : 0,
-    //         diamonds: 0,
-    //         level : 0,
-    //         last_message: 0
-    //     }     
-    // };
-
-    // userStats.xp += random.int(5,20);
-    // console.log(userStats.xp);
 
     let args = message.content.substring(PREFIX.length).split(' ');
 
@@ -60,11 +41,14 @@ client.on('message', async message => {
             "It's dangerous to go alone, take this... ",
             "These meme was summoned by the josh-poggers gang. ",
             "I don't have a good feeling about this one... ",
-            "I wonder if you could  trade this for a potion... "
+            "I wonder if you could trade this for a potion... "
             
         ];
     
         responseIndex = random.int(0,responses.length-1);
         return responses[responseIndex]
     }
+
+    client.mongoose.init();
+    client.login(process.env.CLIENT_TOKEN);
 });
