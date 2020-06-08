@@ -10,9 +10,13 @@
     "dependencies": {
         "discord.js": "^12.2.0",
         "dotenv": "^8.2.0",
+<<<<<<< HEAD
         "eslint": "^7.1.0",
         "mongoose": "^5.9.18",
         "nodemon": "^2.0.4",
         "random": "^2.2.0"
+=======
+        "eslint": "^7.1.0"
+>>>>>>> 48e157467aa4ee48d58bf46367c3f813c4120d62
     }
 }
